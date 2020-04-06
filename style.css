@@ -1,0 +1,52 @@
+:root {
+  --clock-size: 120px;
+  --clock-br-radius: 100px;
+  --clock-bgc: #000;
+  --clock-center-bgc: rgb(102, 90, 90);
+}
+
+.cityClock {
+  position: relative;
+  margin: 20px auto;
+  width: var(--clock-size);
+  height: var(--clock-size);
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3px;
+  background: url(img/clock-hms.png) no-repeat;
+}
+
+.cityClock .hour,
+.cityClock .minut,
+.cityClock .secon{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 120px;
+  height: 120px;
+}
+
+.hour{
+  background: url(img/clock-hms.png) no-repeat -120px 0;
+  transform: rotate(30deg) translateZ(0px);
+}
+
+.minut{
+  background: url(img/clock-hms.png) no-repeat -240px 0;
+  transform: rotate(40deg) translateZ(0px);
+}
+
+.secon {
+  background: url(img/clock-hms.png) no-repeat -359px 0;
+  transform: rotate(0deg) translateZ(0px);
+}
+
+.center{
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  left: 57px;
+  top: 57px;
+  background: url(img/clock-hms.png) no-repeat -480px 0;
+}
