@@ -39,7 +39,7 @@
 
 .secon {
   background: url(img/clock-hms.png) no-repeat -359px 0;
-  transform: rotate(0deg) translateZ(0px);
+  /* transform: rotate(0deg) translateZ(0px); */
 }
 
 .center{

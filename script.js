@@ -31,7 +31,7 @@ function createClock(json) {
   }
 
   // redrawing time
-  // var redrawing = setInterval(redrawingTimer, 1000);
+  // let redrawing = setInterval(redrawingTimer, 1000);
   function redrawingTimer() {
 
     for(let i = 1; i < arrayTimezone.length; i++) {
@@ -45,4 +45,21 @@ function createClock(json) {
     ).innerHTML = textnode;
     }
   }
+}
+
+ let myVar = setInterval(myTimer, 1000);
+//  myTimer();
+function myTimer() {
+  let aestTime = new Date();
+  let textnode = `${aestTime.toLocaleString('pt-PT', {
+    timeZone: `America/Dawson`,
+    timeStyle: 'medium',
+  })}`;
+
+  // convert time str "14:34:28" => array int [14, 34, 28]
+  let convertTime = textnode.split(":").map(x=>+x);
+
+  console.log(convertTime)
+  document.getElementById("demo").innerHTML = textnode;
+ 
 }
