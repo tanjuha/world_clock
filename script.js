@@ -47,19 +47,27 @@ function createClock(json) {
   }
 }
 
- let myVar = setInterval(myTimer, 1000);
+let myVar = setInterval(myTimer, 1000);
 //  myTimer();
 function myTimer() {
   let aestTime = new Date();
-  let textnode = `${aestTime.toLocaleString('pt-PT', {
-    timeZone: `America/Dawson`,
+  let textnode = `${aestTime.toLocaleString('en-US', {
+    timeZone: `America/New_York`,
     timeStyle: 'medium',
   })}`;
 
   // convert time str "14:34:28" => array int [14, 34, 28]
-  let convertTime = textnode.split(":").map(x=>+x);
+  let convertTime = textnode.split(":").map(x=>parseInt(x));
 
-  console.log(convertTime)
+  // convert time => deg
+  let secondDeg = convertTime[2] * 6;
+  let minuteDeg =  convertTime[1] * 6 + (convertTime[2] * 0.1);
+  let hourDeg = convertTime[0] * 30 + (convertTime[1] * 0.5) + (convertTime[2] * 0.009);
+
+  document.getElementById("secon").style.transform = "rotate("+ secondDeg +"deg) translateZ(0px)";
+  document.getElementById("minut").style.transform = "rotate("+ minuteDeg +"deg) translateZ(0px)";
+  document.getElementById("hour").style.transform = "rotate("+ hourDeg +"deg) translateZ(0px)";
+
   document.getElementById("demo").innerHTML = textnode;
  
 }
